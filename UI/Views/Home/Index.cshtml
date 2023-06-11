@@ -1,9 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
-
 <!-- Carousel Start -->
 <div class="container-fluid p-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -816,22 +813,32 @@
     <div class="row g-0">
         <div class="col-lg-6">
             <div class="bg-dark p-5">
-                <form>
+                <form id="contact_form" method="post" role="form" class="php-email-form">
                     <div class="row g-3">
                         <div class="col-6">
-                            <input type="text" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                            <input type="text" id="name" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
                         </div>
                         <div class="col-6">
-                            <input type="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                            <input type="email" id="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
+                            <input id="subject" type="text" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="Message"></textarea>
+                            <textarea id="message" class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="Message"></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                        </div>
+
+                        <div id="successMessage" class="alert alert-success d-none" role="alert">
+                            Your message has been sent successfully!
+                            <button type="button" class="close" onclick="hideMessage('successMessage')">&times;</button>
+                        </div>
+
+                        <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                            Error occurred while sending the email. Please try again later.
+                            <button type="button" class="close" onclick="hideMessage('errorMessage')">&times;</button>
                         </div>
                     </div>
                 </form>
@@ -846,4 +853,5 @@
     </div>
 
 
+    <script src="~/js/mail.js"></script>
 </div>
